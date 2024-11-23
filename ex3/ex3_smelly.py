@@ -1,51 +1,37 @@
-class Electronics:
-    def __init__(self, name, price):
+class products:
+    def __init__(self,name,price,discount_rate,tax_rate):
         self.name = name
         self.price = price
+        self.discount_rate = discount_rate
+        self.tax_rate = tax_rate
     
     def apply_discount(self):
-        discount = 0.10  # 10% discount
-        discounted_price = self.price - (self.price * discount)
-        print(f"Discounted price for {self.name} (Electronics): {discounted_price}")
+        discounted_price = self.price * (1 - self.discount_rate)
+        print(f"Discounted price for {self.name} ({self.__class__.__name__}): {discounted_price}")
         return discounted_price
     
     def calculate_tax(self):
-        tax_rate = 0.15  # 15% tax
-        tax = self.price * tax_rate
-        print(f"Tax for {self.name} (Electronics): {tax}")
+        tax = self.price * self.tax_rate
+        print(f"Tax for {self.name} ({self.__class__.__name__}): {tax}")
         return tax
+
+class Electronics:
+    def __init__(self, name, price,discount_rate,tax_rate):
+        self.name = name
+        self.price = price
+        self.discount_rate = 0.10
+        self.tax_rate = 0.15
 
 class Clothing:
-    def __init__(self, name, price):
+    def __init__(self, name, price,discount_rate,tax_rate):
         self.name = name
         self.price = price
-
-    def apply_discount(self):
-        discount = 0.20  # 20% discount
-        discounted_price = self.price - (self.price * discount)
-        print(f"Discounted price for {self.name} (Clothing): {discounted_price}")
-        return discounted_price
-    
-    def calculate_tax(self):
-        tax_rate = 0.08  # 8% tax
-        tax = self.price * tax_rate
-        print(f"Tax for {self.name} (Clothing): {tax}")
-        return tax
+        self.discount_rate = 0.20
+        self.tax_rate = 0.08
 
 class Grocery:
-    def __init__(self, name, price):
+    def __init__(self, name, price,discount_rate,tax_rate):
         self.name = name
         self.price = price
-    
-    def apply_discount(self):
-        discount = 0.05  # 5% discount
-        discounted_price = self.price - (self.price * discount)
-        print(f"Discounted price for {self.name} (Grocery): {discounted_price}")
-        return discounted_price
-    
-    def calculate_tax(self):
-        tax_rate = 0.02  # 2% tax
-        tax = self.price * tax_rate
-        print(f"Tax for {self.name} (Grocery): {tax}")
-        return tax
-
+        self.discount_rate = 0.05
+        self.tax_rate = 0.02

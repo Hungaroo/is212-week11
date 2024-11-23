@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from ex3_smelly import Clothing, Electronics, Grocery
+from ex3_smelly import products, Clothing, Electronics, Grocery
 
 class TestElectronics(unittest.TestCase):
     def setUp(self):
